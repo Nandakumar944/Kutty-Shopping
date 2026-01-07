@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kutty PVT. Ltd - Fruits & Veggies Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: url('background.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: brightness(0.95);
+      color: #111;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(30, 30, 30, 0.9);
+      flex-wrap: wrap;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-title img {
+      height: 80px;
+    }
+
+    .logo-title h1 {
+      color: #f7c100;
+      font-size: 28px;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f7c100;
+    }
+
+    .user-info {
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+
+    .logout-btn {
+      padding: 10px 20px;
+      background-color: #f7c100;
+      color: #111;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .logout-btn:hover {
+      background-color: #e6b800;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 15px;
+    }
+
+    .filters button {
+      padding: 10px 20px;
+      background: #f7c100;
+      border: none;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .filters button.active {
+      background: #333;
+      color: white;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      padding: 20px;
+      justify-items: center;
+    }
+
+    .product-card {
+      width: 180px;
+      background: rgba(30, 30, 30, 0.9);
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+      background: #111;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product-card h4, .product-card p {
+      color: white;
+    }
+
+    .product-card button {
+      margin-top: 5px;
+      background: #f7c100;
+      color: #111;
+      font-weight: bold;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .cart-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #f7c100;
+      color: #111;
+      font-weight: bold;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    #cartCount {
+      background: white;
+      color: #111;
+      border-radius: 50%;
+      padding: 2px 8px;
+      font-size: 14px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      margin: 8px 0;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .modal-content button {
+      background: #f7c100;
+      color: #111;
+      font-weight: bold;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+    }
+
+    .total {
+      font-weight: bold;
+      text-align: right;
+      margin-top: 15px;
+    }
+
+    footer {
+      background-color: #1c1c1c;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 1400px) {
+      .container {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .container {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logout-btn {
+        align-self: flex-end;
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-title">
+      <img src="image.png" alt="Kutty Logo">
+      <h1>Kutty Shopping</h1>
+    </div>
+    <nav>
+      <a href="Home Page.html">Home</a>
+      <a href="Fruits.html">Fruits</a>
+      <a href="Vege.html">Vegetables</a>
+      <a href="Contact Page.html">Contact</a>
+    </nav>
+    <div class="user-info" id="userInfo"></div>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+  </header>
+
+  <!-- Filters -->
+  <div class="filters">
+    <button class="active" onclick="filterProducts('all', event)">All</button>
+    <button onclick="filterProducts('fruit', event)">Fruits</button>
+    <button onclick="filterProducts('vegetable', event)">Vegetables</button>
+  </div>
+
+  <!-- Product List -->
+  <div class="container" id="productList"></div>
+
+  <!-- Cart Button -->
+  <button class="cart-button" onclick="toggleCart()">
+    🛒 <span id="cartCount">0</span>
+  </button>
+
+  <!-- Cart Modal -->
+  <div class="modal" id="cartModal">
+    <div class="modal-content">
+      <h3>Your Cart</h3>
+      <div id="cartItemsModal"></div>
+      <div class="total">Total: ₹<span id="totalPriceModal">0</span></div>
+      <button onclick="showCheckout()">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div class="modal" id="checkoutModal">
+    <div class="modal-content">
+      <h3>Checkout</h3>
+      <form onsubmit="return submitOrder(event)">
+        <input type="text" placeholder="Your Name" required>
+        <input type="tel" placeholder="Phone Number" required pattern="\d{10}" maxlength="10">
+        <textarea placeholder="Address" required></textarea>
+        <button type="submit">Place Order</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>📍 Address: 123 Fresh Market Street, Chennai, India</p>
+    <p>📧 Email: kuttyshopping@gmail.com</p>
+    <p>📞 Contact: +91 98765 43210</p>
+    <p>© 2025 Kutty PVT. Ltd. All rights reserved.</p>
+  </footer>
+
+   <!-- Script -->
+  <script>
+      const products = [
+  // 🍎 Fruits
+  { name: 'Apple', price: 30, category: 'fruit', img: 'fruits/apple.jpg' },
+  { name: 'Banana', price: 10, category: 'fruit', img: 'fruits/banana.jpg' },
+  { name: 'Orange', price: 20, category: 'fruit', img: 'fruits/orange.jpg' },
+  { name: 'Mango', price: 50, category: 'fruit', img: 'fruits/mango.jpg' },
+  { name: 'Grapes', price: 35, category: 'fruit', img: 'fruits/grapes.jpeg' },
+  { name: 'Papaya', price: 45, category: 'fruit', img: 'fruits/papaya.jpg' },
+  { name: 'Pineapple', price: 60, category: 'fruit', img: 'fruits/pineapple.jpg' },
+  { name: 'Watermelon', price: 90, category: 'fruit', img: 'fruits/watermelon.jpg' },
+  { name: 'Strawberry', price: 70, category: 'fruit', img: 'fruits/swrawberry.jpeg' },
+  { name: 'Pomegranate', price: 55, category: 'fruit', img: 'fruits/pomegranate.jpeg' },
+  { name: 'Kiwi', price: 60, category: 'fruit', img: 'fruits/kiwi.jpg' },
+  { name: 'Guava', price: 25, category: 'fruit', img: 'fruits/guava.jpeg' },
+  { name: 'Chikoo', price: 40, category: 'fruit', img: 'fruits/chikoo.jpg' },
+  { name: 'Muskmelon', price: 50, category: 'fruit', img: 'fruits/muskmelon.jpg' },
+  { name: 'Custard Apple', price: 70, category: 'fruit', img: 'fruits/custardapple.jpeg' },
+  { name: 'Lemon', price: 5, category: 'fruit', img: 'fruits/lemon.jpg' },
+  { name: 'Sweet Lime', price: 25, category: 'fruit', img: 'fruits/sweetlime.jpg' },
+  { name: 'Plum', price: 40, category: 'fruit', img: 'fruits/plum.jpg' },
+  { name: 'Pear', price: 35, category: 'fruit', img: 'fruits/pear.jpg' },
+  { name: 'Avocado', price: 85, category: 'fruit', img: 'fruits/avocados.jpg' },
+  { name: 'Fig', price: 55, category: 'fruit', img: 'fruits/fig.jpg' },
+  { name: 'Dragon Fruit', price: 120, category: 'fruit', img: 'fruits/dragon.jpg' },
+  { name: 'Raspberry', price: 100, category: 'fruit', img: 'fruits/rasberry.jpg' },
+  { name: 'Blueberry', price: 110, category: 'fruit', img: 'fruits/blueberry.jpg' },
+  { name: 'Cherry', price: 100, category: 'fruit', img: 'fruits/cherry.jpeg' },
+
+  // 🥬 Vegetables
+  { name: 'Tomato', price: 15, category: 'vegetable', img: 'vegtables/tomato.jpeg' },
+  { name: 'Potato', price: 18, category: 'vegetable', img: 'vegtables/potato.jpg' },
+  { name: 'Onion', price: 22, category: 'vegetable', img: 'vegtables/onion.jpg' },
+  { name: 'Carrot', price: 12, category: 'vegetable', img: 'vegtables/carrots.jpg' },
+  { name: 'Broccoli', price: 25, category: 'vegetable', img: 'vegtables/broccoli.jpeg' },
+  { name: 'Spinach', price: 20, category: 'vegetable', img: 'vegtables/spinach.jpg' },
+  { name: 'Cabbage', price: 15, category: 'vegetable', img: 'vegtables/green-cabbage.jpg' },
+  { name: 'Cauliflower', price: 20, category: 'vegetable', img: 'vegtables/cauliflower.jpg' },
+  { name: 'Brinjal', price: 18, category: 'vegetable', img: 'vegtables/brinjal.jpg' },
+  { name: 'Lady Finger', price: 16, category: 'vegetable', img: 'vegtables/lady-finger.jpg' },
+  { name: 'Green Peas', price: 22, category: 'vegetable', img: 'vegtables/green-peas.jpg' },
+  { name: 'Drumstick', price: 28, category: 'vegetable', img: 'vegtables/drumstick.jpg' },
+  { name: 'Bottle Gourd', price: 20, category: 'vegetable', img: 'vegtables/bottle gourd.jpg' },
+  { name: 'Bitter Gourd', price: 22, category: 'vegetable', img: 'vegtables/bittergourd.jpg' },
+  { name: 'Ridge Gourd', price: 18, category: 'vegetable', img: 'vegtables/ridge gourd.jpg' },
+  { name: 'Snake Gourd', price: 25, category: 'vegetable', img: 'vegtables/snake gourd.jpg' },
+  { name: 'Capsicum', price: 30, category: 'vegetable', img: 'vegtables/Capsicum.jpg' },
+  { name: 'Chilli', price: 12, category: 'vegetable', img: 'vegtables/chillis.jpg' },
+  { name: 'Sweet Corn', price: 35, category: 'vegetable', img: 'vegtables/sweet corn.jpg' },
+  { name: 'Radish', price: 15, category: 'vegetable', img: 'vegtables/radish.jpg' },
+  { name: 'Beetroot', price: 20, category: 'vegetable', img: 'vegtables/beetroot.jpg' },
+  { name: 'Yam', price: 30, category: 'vegetable', img: 'vegtables/yam.jpg' },
+  { name: 'Kohlrabi', price: 28, category: 'vegetable', img: 'vegtables/kohlrabi.jpeg' }
+];
+
+    let cart = {};
+
+    function renderProducts(filter = 'all') {
+      const container = document.getElementById("productList");
+      container.innerHTML = '';
+      const filtered = products.filter(p => filter === 'all' || p.category === filter);
+      filtered.forEach(product => {
+        const card = document.createElement("div");
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="${product.img}" alt="${product.name}">
+          <h4>${product.name}</h4>
+          <p>₹${product.price}</p>
+          <button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function addToCart(name, price) {
+      if (!cart[name]) cart[name] = { price, quantity: 1 };
+      else cart[name].quantity += 1;
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const cartItemsModal = document.getElementById("cartItemsModal");
+      const totalSpan = document.getElementById("totalPriceModal");
+      const cartCount = document.getElementById("cartCount");
+      cartItemsModal.innerHTML = '';
+      let total = 0, count = 0;
+      for (let item in cart) {
+        const qty = cart[item].quantity;
+        const itemTotal = qty * cart[item].price;
+        total += itemTotal;
+        count += qty;
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `<span>${item} x ${qty}</span><span>₹${itemTotal}</span>`;
+        cartItemsModal.appendChild(div);
+      }
+      totalSpan.textContent = total;
+      cartCount.textContent = count;
+    }
+
+    function toggleCart() {
+      const modal = document.getElementById("cartModal");
+      modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+    }
+
+    function filterProducts(category, event) {
+      document.querySelectorAll('.filters button').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      renderProducts(category);
+    }
+
+    function showCheckout() {
+      if (Object.keys(cart).length === 0) return alert("Cart is empty!");
+      document.getElementById("checkoutModal").style.display = "flex";
+      document.getElementById("cartModal").style.display = "none";
+    }
+
+    function submitOrder(event) {
+      event.preventDefault();
+      alert("✅ Order Placed Successfully!");
+      cart = {};
+      updateCartUI();
+      document.getElementById("checkoutModal").style.display = "none";
+      return false;
+    }
+
+    function logout() {
+      if (confirm("Are you sure you want to logout?")) window.location.href = "Home Page.html";
+    }
+
+    // Show username in header
+    window.addEventListener("DOMContentLoaded", () => {
+      const userInfo = document.getElementById("userInfo");
+      const storedUser = localStorage.getItem("username");
+      if (storedUser) {
+        userInfo.textContent = `Welcome, ${storedUser}`;
+      }
+    });
+
+    renderProducts('all');
+  </script>
+</body>
+</html>

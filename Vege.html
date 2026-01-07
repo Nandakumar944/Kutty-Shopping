@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vegetables - Kutty PVT. Ltd</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('background.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(30, 30, 30, 0.9);
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .logo span {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffc107;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffc107;
+    }
+
+    .section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      color: #ffca28;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .veg-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .veg-card {
+      background-color: rgba(31, 31, 31, 0.95);
+      border-radius: 10px;
+      width: 220px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255,193,7,0.1);
+    }
+
+    .veg-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .veg-card h4 {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #ffeb3b;
+    }
+
+    .veg-card p {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    footer {
+      background-color: rgba(30, 30, 30, 0.9);
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      .veg-list {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="image.png" alt="Kutty Logo">
+      <span>Kutty Shopping</span>
+    </div>
+    <nav>
+      <a href="Home Page.html">Home</a>
+        <a href="Fruits.html">Fruits</a>
+      <a href="Contact Page.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Vegetables Section -->
+  <section class="section">
+    <h2>Our Fresh Vegetables</h2>
+    <div class="veg-list">
+      <div class="veg-card">
+        <img src="vegtables/tomato.jpeg" alt="Tomato">
+        <h4>Tomato</h4>
+        <p>Juicy and packed with Vitamin C. Perfect for any dish.</p>
+      </div>
+      <div class="veg-card">
+        <img src="vegtables/potato.jpg" alt="Potato">
+        <h4>Potato</h4>
+        <p>Versatile and rich in carbs. A kitchen staple worldwide.</p>
+      </div>
+      <div class="veg-card">
+        <img src="vegtables/onion.jpg" alt="Onion">
+        <h4>Onion</h4>
+        <p>Adds flavor to any meal. Known for its medicinal value.</p>
+      </div>
+      <div class="veg-card">
+        <img src="vegtables/carrots.jpg" alt="Carrot">
+        <h4>Carrot</h4>
+        <p>Crunchy and sweet. Great for eyesight and skin health.</p>
+      </div>
+      <div class="veg-card">
+        <img src="vegtables/broccoli.jpeg" alt="Broccoli">
+        <h4>Broccoli</h4>
+        <p>Full of vitamins. Supports heart and bone health.</p>
+      </div>
+      <div class="veg-card">
+        <img src="vegtables/spinach.jpg" alt="Spinach">
+        <h4>Spinach</h4>
+        <p>Iron-rich leafy green. Boosts energy and immunity.</p>
+      </div>
+        <div class="veg-card">
+            <img src="vegtables/green-cabbage.jpg" alt="Cabbage">
+            <h4>Cabbage</h4>
+            <p>Low in calories. Great for digestion and weight loss.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/cauliflower.jpg" alt="Cauliflower">
+            <h4>Cauliflower</h4>
+            <p>Low-carb alternative. Rich in antioxidants and vitamins.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/green-peas.jpg" alt="Green Peas">
+            <h4>Green Peas</h4>
+            <p>Crisp and nutritious. High in fiber and vitamins.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/brinjal.jpg" alt="Brinjal">
+            <h4>Brinjal</h4>
+            <p>Rich in antioxidants. Supports heart health and weight loss.</p>
+        </div>
+
+        <div class="veg-card">
+            <img src="vegtables/lady-finger.jpg" alt="Lady Finger">
+            <h4>Lady Finger</h4>
+            <p>Rich in vitamins and minerals. Supports digestion and weight loss.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/drumstick.jpg" alt="Drumstick">
+            <h4>Drumstick</h4>
+            <p>Rich in vitamins and minerals. Supports digestion and overall health.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/bottle gourd.jpg" alt="Bottle Gourd">
+            <h4>Bottle Gourd</h4>
+            <p>Low in calories and high in water content. Great for hydration.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/snake gourd.jpg" alt="Snake Gourd">
+            <h4>Snake Gourd</h4>
+            <p>Low in calories and high in fiber. Supports digestion and weight loss.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/chillis.jpg" alt="Green Chili">
+            <h4>Green Chili</h4>
+            <p>Adds spice to your dishes. Rich in vitamins and antioxidants.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/bittergourd.jpg" alt="Bitter Gourd">
+            <h4>Bitter Gourd</h4>
+            <p>Known for its medicinal properties. Helps regulate blood sugar levels.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/ridge gourd.jpg" alt="Ridge Gourd">
+            <h4>Ridge Gourd</h4>
+            <p>Low in calories and high in water content. Great for hydration.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/Capsicum.jpg" alt="Capsicum">
+            <h4>Capsicum</h4>
+            <p>Rich in vitamins and minerals. Supports heart health and digestion.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/sweet corn.jpg" alt="Sweet Corn">
+            <h4>Sweet Corn</h4>
+            <p>Sweet and crunchy. Rich in fiber and antioxidants.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/radish.jpg" alt="Radish">
+            <h4>Radish</h4>
+            <p>Crisp and peppery. Low in calories and high in fiber.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/beetroot.jpg" alt="Beetroot">
+            <h4>Beetroot</h4>
+            <p>Rich in nutrients. Supports heart health and detoxification.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/yam.jpg" alt="Yam">
+            <h4>Yam</h4>
+            <p>Rich in fiber and nutrients. Supports digestion and overall health.</p>
+        </div>
+        <div class="veg-card">
+            <img src="vegtables/kohlrabi.jpeg" alt="Kohlrabi">
+            <h4>Kohlrabi</h4>
+            <p>Low in calories and high in fiber. Great for digestion and weight loss.</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Kutty PVT. Ltd. All rights reserved. | Contact: +91 98765 43210 | Email: kuttyshopping@gmail.com
+  </footer>
+
+</body>
+</html>

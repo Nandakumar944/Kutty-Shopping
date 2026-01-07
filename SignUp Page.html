@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Kutty Shopping</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      height: 100vh;
+      background: 
+        linear-gradient(-45deg, rgba(67, 206, 162, 0.6), rgba(24, 90, 157, 0.6)),
+        url('background.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      background-blend-mode: overlay;
+      animation: gradientBG 12s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .signup-container {
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.5);
+      padding: 40px 35px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 400px;
+      color: white;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .signup-container img {
+      display: block;
+      margin: 0 auto 20px;
+      width: 70px;
+      border-radius: 50%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 24px;
+    }
+
+    p.subtitle {
+      text-align: center;
+      font-size: 13px;
+      color: #eee;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      display: block;
+      color: #f5f5f5;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      font-size: 14px;
+      background: rgba(255,255,255,0.25);
+      color: white;
+      transition: 0.3s;
+    }
+
+    input::placeholder {
+      color: #e0e0e0;
+    }
+
+    input:focus {
+      outline: none;
+      background: rgba(255,255,255,0.35);
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.4);
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .password-wrapper input {
+      padding-right: 40px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #00c896;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #00ad84;
+      transform: translateY(-2px);
+    }
+
+    .link-group {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+    }
+
+    .link-group a {
+      color: #e0f0ff;
+      text-decoration: none;
+    }
+
+    .link-group a:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 480px) {
+      .signup-container {
+        margin: 20px;
+        padding: 30px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <img src="image.png" alt="Kutty Logo" />
+    <h2>Create Account</h2>
+    <p class="subtitle">Join us for fresh fruits & veggies</p>
+
+    <form id="signupForm">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" placeholder="Enter your full name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Choose a username" required>
+
+      <label for="password">Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" placeholder="Create a password" required>
+        <span class="toggle-password" onclick="togglePassword('password', this)">👁️</span>
+      </div>
+
+      <label for="confirm">Confirm Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="confirm" placeholder="Repeat your password" required>
+        <span class="toggle-password" onclick="togglePassword('confirm', this)">👁️</span>
+      </div>
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="link-group">
+      <p>Already have an account? <a href="Login page.html">Login</a></p>
+    </div>
+  </div>
+
+  <script>
+    function togglePassword(fieldId, icon) {
+      const field = document.getElementById(fieldId);
+      const isVisible = field.type === "text";
+      field.type = isVisible ? "password" : "text";
+      icon.textContent = isVisible ? "👁️" : "🙈";
+    }
+
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("fullname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+      const confirm = document.getElementById("confirm").value;
+
+      if (!name || !email || !username || !password || !confirm) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters.");
+        return;
+      }
+
+      if (password !== confirm) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      alert("Registration successful! Redirecting to login page...");
+      setTimeout(() => {
+        window.location.href = "Login page.html";
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

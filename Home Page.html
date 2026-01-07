@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kutty PVT. Ltd - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #1e1e1e;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffc107;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffc107;
+    }
+
+    .btn-yellow {
+      background-color: #ffc107;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-yellow:hover {
+      background-color: #ffb300;
+      transform: scale(1.05);
+    }
+
+    .hero {
+      background-image: url('background.jpeg');
+      background-size: cover;
+      background-position: center;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      color: #ffeb3b;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .section {
+      padding: 60px 30px;
+      text-align: center;
+    }
+
+    .section h2 {
+      color: #ffca28;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .product-card {
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      width: 220px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(255,193,7,0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product-card h4 {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .product-card p {
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    footer {
+      background-color: #1e1e1e;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 32px;
+      }
+
+      .products {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
+
+      .btn-yellow {
+        margin: 10px 0;
+      }
+
+      .login-button {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+      .logo img {
+  height: 50px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+    }
+  </style>
+</head>
+<body>
+
+  
+  <!-- Header -->
+<header>
+  <div class="logo" style="display: flex; align-items: center;">
+    <img src="image.png" alt="Kutty Logo" style="height: 50px; margin-right: 10px;">
+    <span style="font-size: 24px; font-weight: bold; color: #ffc107;">Kutty Shopping</span>
+  </div>
+  <nav>
+    <a href="Fruits.html">Fruits</a>
+    <a href="Vege.html">Vegetables</a>
+    <a href="Contact Page.html">Contact</a>
+  </nav>
+  <a href="Login page.html" class="btn-yellow login-button">Login</a>
+</header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Fresh Fruits & Veggies at Your Doorstep</h1>
+      <p>Enjoy nature’s freshness with Kutty PVT. Ltd – 100% organic, clean and fast delivery</p>
+      <a href="Login page.html" class="btn-yellow" style="display: inline-block; margin-top: 30px;">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Featured Section -->
+  <section class="section">
+    <h2>Top Picks of the Day</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="fruits/apple.jpg" alt="Apple">
+        <h4>Apple</h4>
+        <p>₹30/kg</p>
+      </div>
+      <div class="product-card">
+        <img src="fruits/banana.jpg" alt="Banana">
+        <h4>Banana</h4>
+        <p>₹10/dozen</p>
+      </div>
+      <div class="product-card">
+        <img src="vegtables/tomato.jpeg" alt="Tomato">
+        <h4>Tomato</h4>
+        <p>₹15/kg</p>
+      </div>
+      <div class="product-card">
+        <img src="vegtables/carrots.jpg" alt="Carrot">
+        <h4>Carrot</h4>
+        <p>₹12/kg</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us Section -->
+  <section class="section" style="background-color: #1e1e1e;">
+    <h2>Why Choose Us?</h2>
+    <p style="max-width: 600px; margin: auto; color: #ccc;">Kutty PVT. Ltd brings you the freshest fruits and vegetables sourced directly from farms. We ensure fast delivery, hygienic packaging, and the best prices in the market.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Kutty PVT. Ltd. All rights reserved. | Contact: +91 98765 43210 | Email: kuttyshopping@gmail.com
+  </footer>
+
+</body>
+</html>

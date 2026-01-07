@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Kutty PVT. Ltd</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('background.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(30, 30, 30, 0.9);
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .logo span {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffc107;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffc107;
+    }
+
+    .contact-section {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 36px;
+      color: #ffca28;
+      margin-bottom: 20px;
+    }
+
+    .contact-section p {
+      font-size: 16px;
+      color: #ccc;
+      margin-bottom: 40px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #ccc;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background-color: #ffc107;
+      color: #111;
+      padding: 12px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #e6b800;
+    }
+
+    .info {
+      margin-top: 40px;
+      color: #aaa;
+      font-size: 15px;
+    }
+
+    footer {
+      background-color: rgba(30, 30, 30, 0.9);
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="image.png" alt="Kutty Logo">
+      <span>Kutty Shopping</span>
+    </div>
+    <nav>
+      <a href="Home Page.html">Home</a>
+      <a href="Fruits.html">Fruits</a>
+      <a href="Vege.html">Vegetables</a>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h2>Contact Us</h2>
+    <p>Have questions, feedback, or need help? We'd love to hear from you!</p>
+
+    <form onsubmit="return handleSubmit(event)">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="info">
+      <p>📍 123 Fresh Market Street, Chennai, India</p>
+      <p>📧 Email: kuttyshopping@gmail.com</p>
+      <p>📞 Phone: +91 98765 43210</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Kutty PVT. Ltd. All rights reserved.
+  </footer>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      alert("✅ Thank you! Your message has been sent.");
+      event.target.reset();
+      return false;
+    }
+  </script>
+
+</body>
+</html>
